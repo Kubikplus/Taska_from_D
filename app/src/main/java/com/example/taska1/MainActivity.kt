@@ -1,30 +1,51 @@
 package com.example.taska1
 
+import android.content.Context
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.taska1.ui.theme.Taska1Theme
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ComposeView
+import com.example.taska1.ui.theme.AddNote
+import com.localazy.quicknote.startFloatingService
+
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var smallScreenView: ComposeView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            Taska1Theme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    VerticalListWithGrid()
-                }
+        startFloatingService()
+        
+        setContent(){
+            Column() {
+                Text(text = "Hello world")
+                
             }
         }
+
     }
+
 }
+
+
+
+
+
+
+
